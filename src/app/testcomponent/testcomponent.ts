@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './testcomponent.html',
   styleUrl: './testcomponent.css',
 })
-export class Testcomponent {}
+export class Testcomponent {
+  protected title="Apparemment ici faut double calibresis pour une props, et faut la protected"
+  protected isDisabled = false
+  protected onClick() {
+    this.isDisabled = !this.isDisabled
+  }
+}
