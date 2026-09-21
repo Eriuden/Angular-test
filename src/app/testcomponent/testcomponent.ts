@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-testcomponent',
@@ -11,5 +11,19 @@ export class Testcomponent {
   protected isDisabled = false
   protected onClick() {
     this.isDisabled = !this.isDisabled
+  }
+
+  protected count = signal(0)
+
+  increase() {
+    this.count.update (v => v + 1)
+  }
+
+  decrease() {
+    this.count.update (v => v - 1)
+  }
+
+  reset() {
+    this.count.set(0)
   }
 }
