@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-testcomponent',
@@ -14,6 +14,10 @@ export class Testcomponent {
   }
 
   protected count = signal(0)
+
+  protected doubleCount = computed( () =>
+    {return this.count()*2}
+  )
 
   increase() {
     this.count.update (v => v + 1)
