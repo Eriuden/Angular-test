@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-testcomponent',
@@ -19,15 +19,19 @@ export class Testcomponent {
     {return this.count()*2}
   )
 
-  increase() {
+  private readonly countLog = effect( () => {
+    console.log("compte a changé", this.count())
+  })
+
+   protected increase() {
     this.count.update (v => v + 1)
   }
 
-  decrease() {
+  protected decrease() {
     this.count.update (v => v - 1)
   }
 
-  reset() {
+  protected reset() {
     this.count.set(0)
   }
 }
