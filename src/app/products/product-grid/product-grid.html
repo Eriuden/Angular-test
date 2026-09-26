@@ -1,8 +1,9 @@
-<div class="grid">
- <app-product-card/>
- <app-product-card/>
- <app-product-card/>
- <app-product-card/>
- <app-product-card/>
- <app-product-card/>
+<div class="product-container">
+  <p>Total de produits: {{products().length}}</p>
+
+  <div class="product-grid">
+    @for (product of products(); track product.id) {
+      <app-product-card/>
+    }
+  </div>
 </div>
