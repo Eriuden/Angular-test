@@ -1,9 +1,16 @@
 <div class="product-container">
   <p>Total de produits: {{products().length}}</p>
 
-  <div class="product-grid">
+  <div class="products-grid">
     @for (product of products(); track product.id) {
       <app-product-card/>
+    } @empty {
+      <div class="emptyState">
+        <mat-icon>Inventaire</mat-icon>
+        <h3>Non disponible</h3>
+        <p>Vérifier plus tard pour de nouveaux produits</p>
+      </div>
     }
   </div>
 </div>
+

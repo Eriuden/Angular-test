@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { Product } from '../product';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-product-grid',
-  imports: [ProductCard],
+  imports: [ProductCard, MatIcon],
   templateUrl: './product-grid.html',
   styleUrl: './product-grid.css',
 })
