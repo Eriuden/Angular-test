@@ -16,21 +16,21 @@ export class ProductGrid {
       name: "untel",
       description:"untel",
       price : 12,
-      originalPrice: 12
+      originalPrice: 15
     },
     {
       id: 2,
       name: "untel",
       description:"untel",
       price : 12,
-      originalPrice: 12
+
     },
     {
       id: 3,
       name: "untel",
       description:"untel",
       price : 12,
-      originalPrice: 12
+      originalPrice: 15
     },
   ])
 }
