@@ -1,6 +1,6 @@
+import { Product } from './../product';
 import { Component, computed, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
-import { Product } from '../product';
 import { MatIcon, MatIconModule} from '@angular/material/icon';
 import {FormsModule} from "@angular/forms"
 import { MatFormFieldModule } from "@angular/material/form-field"
@@ -46,6 +46,10 @@ export class ProductGrid {
         product.description.toLocaleLowerCase().includes(term)
     )
   })
+
+  protected onAddToCart(product: Product) {
+
+  }
 
   protected clearSearch() {
     this.searchTerm.set("")
