@@ -13,8 +13,10 @@ export class Testcomponent {
     this.isDisabled = !this.isDisabled
   }
 
+  // signal est en quelque sorte le useState de Angular
   protected count = signal(0)
 
+  //computed sert principalement à des calculs à base de signals
   protected doubleCount = computed( () =>
     {return this.count()*2}
   )

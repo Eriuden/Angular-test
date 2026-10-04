@@ -2,7 +2,6 @@ import { Component, input, output } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from "@angular/material/card"
 import {Product} from "../product"
-import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
@@ -15,6 +14,9 @@ export class ProductCard {
   readonly addButtonLabel = input("Ajouter au panier")
 
   readonly addToCart = output<Product>()
+
+  //emit envoie de l'enfant au parent des données
+  //Il agit depuis un output, comme ici addToCart
 
   protected onAddToCart() {
     this.addToCart.emit(this.product())
