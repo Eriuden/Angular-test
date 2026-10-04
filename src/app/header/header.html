@@ -10,7 +10,10 @@
   <span class="spacer"></span>
 
   <button matButton>
-    <mat-icon aria-hidden="false" aria-label="Cart"
+    <mat-icon [matBadge] = "CartService.totalItems()"
+    [matBadgeHidden]="CartService.totalItems() === 0"
+    matBadgeDescription="Dans votre panier"
+    aria-hidden="false" aria-label="Cart"
     fontIcon="shopping_cart"></mat-icon>
 
   </button>

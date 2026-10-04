@@ -1,6 +1,7 @@
 import { Product } from './../products/product';
-import { signal } from '@angular/core';
+import { computed, signal } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { CartItem } from './cart-item';
 
 //les services servent basiquement de simili-API
 //Mais mieux vaut voir pour ça ngrxsignal
@@ -9,10 +10,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CartService {
-  private readonly cartItems = signal<Product[]>([])
+  private readonly cartItems = signal<CartItem[]>([])
 
+  readonly totalItems = computed(() => this.cartItems().reduce
+    ((total, item) =>
+    total + item.quantity, 0))
   addToCart(product: Product) {
-    this.cartItems.update((items) =>[...items, product])
+    this.cartItems.update((items) => {
+      const existingItem = items.find((item) => item.product.id === product.id)
+      if (existingItem) {
+        return items.map((item) =>
+          item.product.id === product.id ? {...item, quanttity : item.quantity + 1}
+          : item
+        )
+      }
+
+      return [...items, {product, quantity: 1}]
+    })
   }
 }
 

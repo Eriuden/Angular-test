@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { CartService } from './../cart/cart-service';
+import { Component, inject } from '@angular/core';
 import {MatToolbarModule} from "@angular/material/toolbar"
 import {MatButtonModule} from "@angular/material/button"
 import {MatIconModule} from "@angular/material/icon"
@@ -9,4 +10,6 @@ import {MatIconModule} from "@angular/material/icon"
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  protected readonly CartService = inject(CartService)
+}
